@@ -1,10 +1,9 @@
 <template>
   <div id="app">
     <!-- <router-view id="router" v-bind:key="$route.path" /> -->
-    <!-- <index v-if="isLogin" />
+    <index v-if="isLogin" />
     <login v-else />
-    <alertdialog /> -->
-    <login></login>
+    <alertdialog />
   </div>
 </template>
 
@@ -12,10 +11,10 @@
 import { mapState } from "vuex";
 export default {
   components: {
-    // alertdialog: () => import("@/components/AlertDialog.vue"),
-    login: () => import("@/views/Login.vue")
+    alertdialog: () => import("@/components/AlertDialog.vue"),
+    login: () => import("@/views/Login.vue"),
     // welcome: () => import("@/views/Welcome.vue")
-    // index: () => import("@/views/Index.vue")
+    index: () => import("@/views/Index.vue")
   },
   computed: {
     ...mapState(["isLogin"])

@@ -1,0 +1,15 @@
+export const LOGIN = "login";
+export const INDEX = "index";
+export const GET_EXCEPTION = "getException";
+export const UPDATE_PWD = "updatePwd";
+export const UPDATE_NOTE = "updateNote";
+export const UPDATE_DIRECTIONS = "updateDirections";
+export const DELETE_COURSE = "deleteCourse";
+export const ADD_COURSE = "addCourse";
+export const UPDATE_COURSE = "updateCourse";
+export const BUILD_STUDENT = "buildStudent";
+export const ADD_STUDENT = "addstudent";
+export const CHOOSE_TUTOR = "chooseTutor";
+export const ADD_DIRECTION = "addDirection";
+export const UPDATE_SDIR = "updateSdir";
+export const DELETE_RELATION = "deleteRelation";
