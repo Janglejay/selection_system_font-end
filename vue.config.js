@@ -10,7 +10,7 @@ module.exports = {
       "/api/": {
         //目标api地址
         // target: "http://39.97.116.91.8000", //部署用
-        target: "http://localhost:8080",
+        target: "http://localhost:8000",
         //将主机标头的原点更改为目标URL
         changeOrigin: true
       }

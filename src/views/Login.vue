@@ -3,8 +3,9 @@
     <el-row :gutter="20">
       <el-col :span="14">
         <div class="grid-content bg-purple title">
-          <h1>Welcome To</h1>
-          <h1>学生导师互选系统</h1>
+          <!-- <h1>Welcome To</h1> -->
+          <h2>Welcome To</h2>
+          <h2>Selection System</h2>
         </div>
       </el-col>
       <el-col :span="1">
@@ -56,8 +57,8 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
   /* text-align: center; */
 }
-h1 {
-  color: white;
+h2 {
+  color: aliceblue;
 }
 .el-input {
   margin-bottom: 20px;
