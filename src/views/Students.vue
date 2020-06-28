@@ -6,13 +6,13 @@
         <div class="grid-content bg-purple-light button-container">
           <el-button
             @click="changeItem2"
-            icon="el-icon-s-goods
+            icon="el-icon-user
 "
           >
-            我的学生
+            My Students
           </el-button>
-          <el-button @click="changeItem1" icon="el-icon-user-solid">
-            自选学生
+          <el-button @click="changeItem1" icon="el-icon-circle-plus-outline">
+            Add Student
           </el-button>
         </div>
       </el-col>
@@ -24,22 +24,22 @@
         <div class="grid-content bg-purple-light">
           <el-card class="box-card">
             <div slot="header" class="clearfix">
-              <span>自选学生</span>
+              <span>Add Student</span>
             </div>
             <el-form :label-position="labelPosition" label-width="80px">
-              <el-form-item label="姓名">
+              <el-form-item label="Name">
                 <el-input v-model="name"></el-input>
               </el-form-item>
-              <el-form-item label="学号">
+              <el-form-item label="Number">
                 <el-input v-model="number"></el-input>
               </el-form-item>
             </el-form>
             <el-button
               type="primary"
               @click="addstudent"
-              style="float:right;margin:0px 10px 20px 0px;background-color: #ccccff; border-color: #ccccff"
+              style="float:right;margin:0px 10px 20px 0px;background-color: #1A237E; border-color: #1A237E"
             >
-              添加学生
+              Add
             </el-button>
           </el-card>
         </div>
@@ -52,36 +52,36 @@
         <div class="grid-content bg-purple-light">
           <el-card class="box-card">
             <div slot="header" class="clearfix">
-              <span>我的学生</span>
+              <span>My Students</span>
             </div>
             <el-table :data="mystudents" stripe style="width: 100%">
               <el-table-column
-                label="序号"
+                label="Rank"
                 type="index"
                 width="100"
               ></el-table-column>
               <el-table-column
                 prop="user.number"
-                label="学号"
+                label="Number"
                 width="180"
               ></el-table-column>
               <el-table-column
                 prop="user.name"
-                label="姓名"
+                label="Name"
                 width="180"
               ></el-table-column>
               <el-table-column
                 prop="mydirection"
-                label="毕设方向"
+                label="Direction"
                 width="280"
               ></el-table-column>
-              <el-table-column label="操作">
+              <el-table-column label="Edit">
                 <template slot-scope="scope">
                   <el-button
                     icon="el-icon-edit"
                     circle
                     @click="handleEdit(scope.$index, scope.row)"
-                    style="background-color: #ccccff;"
+                    style="background-color: #1a237e;"
                   ></el-button>
                   <!-- <el-button
                     size="mini"
@@ -90,7 +90,6 @@
                     <i class="el-icon-edit"></i>
                   </el-button> -->
                   <el-button
-                    type="danger"
                     icon="el-icon-delete"
                     circle
                     @click="handleDelete(scope.$index, scope.row)"
@@ -105,9 +104,9 @@
                 </template>
               </el-table-column>
             </el-table>
-            <el-dialog title="修改毕设方向" :visible.sync="open1">
+            <el-dialog title="Modify Direction" :visible.sync="open1">
               <el-form>
-                <el-form-item label="毕设方向" :label-width="formLabelWidth">
+                <el-form-item label="Direction" :label-width="formLabelWidth">
                   <el-input
                     type="text"
                     v-model="dir"
@@ -116,9 +115,9 @@
                 </el-form-item>
               </el-form>
               <div slot="footer" class="dialog-footer">
-                <el-button @click="open1 = false">取 消</el-button>
+                <el-button @click="open1 = false">Cancel</el-button>
                 <el-button type="primary" @click="updateSdir">
-                  确 定
+                  Confirm
                 </el-button>
               </div>
             </el-dialog>
@@ -166,7 +165,7 @@ export default {
       console.log(this.name);
       console.log(this.number);
       if (this.mystudents.length == this.tutor.maxStuNum) {
-        this.$message.error("您已完成招生目标，不能继续添加。");
+        this.$message.error("Limted Number Can't Add");
       } else {
         this.$store
           .dispatch(ADD_STUDENT, {
@@ -177,18 +176,20 @@ export default {
           })
           .then(() => {
             this.$message({
-              message: "恭喜你，成功添加该学生 ",
+              message: "Success Add ",
               type: "success"
             });
           })
           .catch(() => {
-            this.$message.error("该学生已有导师，不可重复添加");
+            this.$message.error(
+              "The student has already chosen a tutor. It cannot be repeated"
+            );
           });
       }
     },
     success() {
       this.$message({
-        message: "操作成功",
+        message: "Success",
         type: "success"
       });
     },
@@ -199,9 +200,9 @@ export default {
       this.open1 = true;
     },
     handleDelete(index, row) {
-      this.$confirm("此操作将永久取消您与该学生的关联, 是否继续?", "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
+      this.$confirm("Make sure to deselect the student?", "Tip", {
+        confirmButtonText: "Confirm",
+        cancelButtonText: "Cancel",
         type: "warning"
       })
         .then(() => {
@@ -210,13 +211,13 @@ export default {
           });
           this.$message({
             type: "success",
-            message: "删除成功!"
+            message: "Success delete!"
           });
         })
         .catch(() => {
           this.$message({
             type: "info",
-            message: "已取消删除"
+            message: "Cancel delete"
           });
         });
       console.log(index + 1);
@@ -262,7 +263,7 @@ export default {
   width: 100%;
 }
 /* 卡片 */
-.button-container > .el-button {
+/* .button-container > .el-button {
   font-size: 15px;
   background-color: #ccccff;
   color: #5fa1a1;
@@ -270,7 +271,7 @@ export default {
   height: 70px;
   border-radius: 40px;
   margin-right: 10px;
-}
+} */
 /* 选课列表 */
 .el-input {
   width: 80%;

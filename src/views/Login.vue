@@ -1,25 +1,28 @@
 <template>
   <div class="container">
-    <el-row :gutter="20">
-      <el-col :span="14">
+    <el-row :gutter="24">
+      <el-col :span="13">
         <div class="grid-content bg-purple title">
-          <h1>Welcome To</h1>
-          <h1>学生导师互选系统</h1>
+          <h2>Welcome To</h2>
+          <h2>Seletion System</h2>
         </div>
       </el-col>
-      <el-col :span="1">
+      <el-col :span="2">
         <div class="grid-content bg-purple title"></div>
       </el-col>
-      <el-col :span="7">
+      <el-col :span="8">
         <div class="grid-content bg-purple-light login-input">
           <form ref="form">
-            <label>用户名</label>
+            <label>User Number</label>
             <el-input type="text" v-model="number"></el-input>
             <br />
-            <label>密码</label>
+            <br />
+            <label>Password</label>
             <el-input type="password" v-model="password"></el-input>
             <br />
-            <el-button @click="login">登录</el-button>
+            <el-button @click="login" round size="medium" type="success">
+              Login
+            </el-button>
           </form>
         </div>
       </el-col>
@@ -28,7 +31,7 @@
       </el-col>
     </el-row>
     <el-row>
-      <el-col :span="24">
+      <el-col :span="20">
         <div class="grid-content bg-purple add-div"></div>
       </el-col>
     </el-row>
@@ -56,7 +59,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
   /* text-align: center; */
 }
-h1 {
+h2 {
   color: white;
 }
 .el-input {
@@ -65,7 +68,6 @@ h1 {
 .el-button {
   margin: 35px 0px;
   float: right;
-  background-color: #ccccff;
 }
 .add-div {
   background-color: darkgrey;

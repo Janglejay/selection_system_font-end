@@ -1,12 +1,12 @@
 <template>
   <div class="container">
     <el-row>
-      <el-col :span="4">
+      <el-col :span="5">
         <div class="grid-content bg-purple-dark">
           <sidebar id="sidebar" />
         </div>
       </el-col>
-      <el-col :span="20">
+      <el-col :span="18">
         <div class="grid-content bg-purple-dark">
           <myheader />
           <router-view id="router" v-bind:key="$route.path" />

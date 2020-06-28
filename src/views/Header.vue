@@ -2,14 +2,9 @@
   <div>
     <div class="title">
       <div class="content">
-        <p v-if="tutor">欢迎您！{{ tname }}老师</p>
-        <p v-else>欢迎您！{{ sname }}同学</p>
-        <el-button
-          circle
-          type="danger"
-          icon="el-icon-switch-button"
-          @click="logout"
-        ></el-button>
+        <p v-if="tutor">{{ tname }}</p>
+        <p v-else>{{ sname }}</p>
+        <el-button circle type="success" @click="logout">Logout</el-button>
       </div>
     </div>
   </div>
@@ -61,7 +56,7 @@ export default {
 .title {
   margin: 0px 0px 0px 10px;
   border-radius: 10px;
-  background-color: #99cccc;
+  background-color: #1a237e;
   color: white;
   width: 99%;
   height: 75px;

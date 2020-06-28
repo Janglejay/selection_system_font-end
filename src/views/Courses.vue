@@ -4,18 +4,14 @@
       <el-col :span="1"><div class="grid-content bg-purple"></div></el-col>
       <el-col :span="22">
         <div class="grid-content button-container">
-          <el-button
-            @click="changeItem1"
-            icon="el-icon-s-goods
-"
-          >
-            我的课程
+          <el-button @click="changeItem1" icon="el-icon-s-order">
+            My Courses
           </el-button>
           <el-button @click="changeItem2" icon="el-icon-user-solid">
-            录入学生
+            Import Students
           </el-button>
           <el-button @click="changeItem3" icon="el-icon-s-marketing">
-            学生排名
+            Students ranking
           </el-button>
         </div>
       </el-col>
@@ -27,14 +23,14 @@
         <div class="grid-content bg-purple-light">
           <el-card class="box-card">
             <div slot="header" class="clearfix">
-              <span>我的课程</span>
+              <span>My Courses</span>
               <el-button
                 icon="el-icon-circle-plus-outline"
                 style="float: right; padding: 3px 0"
                 type="text"
                 @click="open2 = true"
               >
-                添加课程
+                Add Course
               </el-button>
             </div>
 
@@ -42,30 +38,29 @@
               <el-table :data="tcourses" style="width: 100%">
                 <el-table-column
                   type="index"
-                  label="序号"
+                  label="Rank"
                   width="100"
                 ></el-table-column>
                 <el-table-column
                   prop="name"
-                  label="课程名"
+                  label="Course Name"
                   width="180"
                 ></el-table-column>
                 <el-table-column
                   prop="weight"
-                  label="权重(1.0-2.0)"
+                  label="Weight(0-1)"
                   width="180"
                 ></el-table-column>
-                <el-table-column label="操作" width="300">
+                <el-table-column label="Edit" width="300">
                   <template slot-scope="scope">
                     <el-button
                       icon="el-icon-edit"
                       circle
                       @click="handleEdit(scope.$index, scope.row)"
-                      style="background-color: #ccccff;"
+                      style="background-color: #1A237E;"
                     ></el-button>
 
                     <el-button
-                      type="danger"
                       icon="el-icon-delete"
                       circle
                       @click="handleDelete(scope.$index, scope.row)"
@@ -75,16 +70,16 @@
               </el-table>
             </div>
 
-            <el-dialog title="添加课程" :visible.sync="open2">
+            <el-dialog title="Add Course" :visible.sync="open2">
               <el-form ref="a">
-                <el-form-item label="课程名称" :label-width="formLabelWidth">
+                <el-form-item label="Course Name" :label-width="formLabelWidth">
                   <el-input
                     type="text"
                     v-model="name"
                     autocomplete="off"
                   ></el-input>
                 </el-form-item>
-                <el-form-item label="课程比重" :label-width="formLabelWidth">
+                <el-form-item label="Weight" :label-width="formLabelWidth">
                   <el-input
                     type="text"
                     v-model="weight"
@@ -93,23 +88,23 @@
                 </el-form-item>
               </el-form>
               <div slot="footer" class="dialog-footer">
-                <el-button @click="open2 = false">取 消</el-button>
+                <el-button @click="open2 = false">Cancel</el-button>
                 <el-button type="primary" @click="addCourse">
-                  确 定
+                  Confirm
                 </el-button>
               </div>
             </el-dialog>
 
-            <el-dialog title="修改课程信息" :visible.sync="open1">
+            <el-dialog title="Edit Course Imformation" :visible.sync="open1">
               <el-form>
-                <el-form-item label="课程名称" :label-width="formLabelWidth">
+                <el-form-item label="Course Name" :label-width="formLabelWidth">
                   <el-input
                     type="text"
                     v-model="name0"
                     autocomplete="off"
                   ></el-input>
                 </el-form-item>
-                <el-form-item label="课程比重" :label-width="formLabelWidth">
+                <el-form-item label="Weight" :label-width="formLabelWidth">
                   <el-input
                     type="text"
                     v-model="weight0"
@@ -118,9 +113,9 @@
                 </el-form-item>
               </el-form>
               <div slot="footer" class="dialog-footer">
-                <el-button @click="open1 = false">取 消</el-button>
+                <el-button @click="open1 = false">Cancel</el-button>
                 <el-button type="primary" @click="updateCourse">
-                  确 定
+                  Confirm
                 </el-button>
               </div>
             </el-dialog>
@@ -136,7 +131,7 @@
         <div class="grid-content bg-purple-light">
           <el-card class="box-card">
             <div slot="header" class="clearfix">
-              <span>录入学生</span>
+              <span>Import Students</span>
               <!-- <el-button
                 style="float: right; padding: 3px 0"
                 type="text"
@@ -150,7 +145,7 @@
               <el-select
                 v-model="value"
                 filterable
-                placeholder="请选择所在课程"
+                placeholder="Choose a course"
                 style="margin:0px 30px;"
               >
                 <el-option
@@ -171,31 +166,31 @@
               <el-table :data="students" style="width: 100%">
                 <el-table-column
                   type="index"
-                  label="序号"
+                  label="Rank"
                   width="100"
                 ></el-table-column>
                 <el-table-column
                   prop="number"
-                  label="学号"
+                  label="Number"
                   width="180"
                 ></el-table-column>
                 <el-table-column
                   prop="name"
-                  label="姓名"
+                  label="Name"
                   width="180"
                 ></el-table-column>
                 <el-table-column
                   prop="score"
-                  label="成绩"
+                  label="Grade"
                   width="180"
                 ></el-table-column>
               </el-table>
               <el-button
                 type="primary"
-                style="float: right; margin:10px;background-color: #ccccff; border-color: #ccccff"
+                style="float: right; margin:10px;background-color: #1a237e; border-color: #1a237e;width:90px"
                 @click="buildStudent"
               >
-                录入学生
+                Import
               </el-button>
             </div>
           </el-card>
@@ -210,7 +205,7 @@
         <div class="grid-content bg-purple-light">
           <el-card class="box-card">
             <div slot="header" class="clearfix">
-              <span>综合成绩排名</span>
+              <span>Comprehensive ranking</span>
               <!-- <el-button
                 type="text"
                 style="float: right; margin:3px 0px;"
@@ -224,17 +219,17 @@
               <el-table :data="studentUsers" style="width: 100%">
                 <el-table-column
                   type="index"
-                  label="序号"
+                  label="Rank"
                   width="100"
                 ></el-table-column>
                 <el-table-column
                   prop="name"
-                  label="姓名"
+                  label="Name"
                   width="180"
                 ></el-table-column>
                 <el-table-column
                   prop="number"
-                  label="学号"
+                  label="Number"
                   width="180"
                 ></el-table-column>
               </el-table>
@@ -311,9 +306,9 @@ export default {
       this.open1 = true;
     },
     handleDelete(index, row) {
-      this.$confirm("此操作将永久删除该课程及选该课的学生, 是否继续?", "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
+      this.$confirm("Confirm delete this student?", "tip", {
+        confirmButtonText: "confirm",
+        cancelButtonText: "cancle",
         type: "warning"
       })
         .then(() => {
@@ -324,18 +319,18 @@ export default {
             .then(() => {
               this.$message({
                 type: "success",
-                message: "删除成功!"
+                message: "delete success!"
               });
             })
             .catch(() => {
-              this.$message.error("删除失败");
+              this.$message.error("delete failed");
             });
         })
 
         .catch(() => {
           this.$message({
             type: "info",
-            message: "已取消删除"
+            message: "cancle delete"
           });
         });
       console.log(index + 1);
@@ -343,7 +338,7 @@ export default {
     },
     success() {
       this.$message({
-        message: "操作成功",
+        message: "success",
         type: "success"
       });
     },
@@ -416,14 +411,14 @@ export default {
           if (this.isBuildStudents == true) {
             loading.close();
             this.$message({
-              message: "创建成功！",
+              message: "Build Success",
               type: "success"
             });
           }
         })
         .catch(() => {
           loading.close();
-          this.$message.error("创建失败");
+          this.$message.error("Build failed");
         });
     }
   }
@@ -455,7 +450,7 @@ export default {
   width: 100%;
 }
 /* 卡片 */
-.button-container > .el-button {
+/* .button-container > .el-button {
   font-size: 15px;
   background-color: #ccccff;
   color: #5fa1a1;
@@ -463,7 +458,7 @@ export default {
   height: 70px;
   border-radius: 40px;
   margin-right: 10px;
-}
+} */
 
 /* 选课列表 */
 .el-input {

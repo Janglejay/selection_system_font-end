@@ -1,12 +1,12 @@
 <template>
   <div class="container">
     <el-row>
-      <el-col :span="1"><div class="grid-content bg-purple"></div></el-col>
-      <el-col :span="22">
+      <el-col :span="2"><div class="grid-content bg-purple"></div></el-col>
+      <el-col :span="20">
         <div class="grid-content bg-purple-light">
           <el-card class="box-card">
             <div slot="header" class="clearfix">
-              <span>基本信息</span>
+              <span>Base Imformations</span>
               <!-- <el-button
                 icon="el-icon-edit"
                 size="mini"
@@ -21,33 +21,51 @@
                 type="text"
                 plain
               >
-                修改密码
+                Modify Password
               </el-button>
             </div>
             <template v-if="istutor">
-              <div class="item">姓名: {{ tutor.user.name }}</div>
+              <div class="item">
+                <el-tag>Name</el-tag>
+                {{ tutor.user.name }}
+              </div>
             </template>
             <template v-if="isstudent">
-              <div class="item">姓名: {{ student.user.name }}</div>
+              <div class="item">
+                <el-tag>Name</el-tag>
+                {{ student.user.name }}
+              </div>
             </template>
             <template v-if="istutor">
-              <div class="item">工号：{{ tutor.user.number }}</div>
+              <div class="item">
+                <el-tag>User Number</el-tag>
+                {{ tutor.user.number }}
+              </div>
             </template>
             <template v-if="isstudent">
-              <div class="item">学号：{{ student.user.number }}</div>
+              <div class="item">
+                <el-tag>User Number</el-tag>
+                {{ student.user.number }}
+              </div>
             </template>
 
-            <div class="item" v-if="isstudent">我的导师：{{ stutor }}</div>
-            <el-dialog title="修改密码" :visible.sync="open1">
+            <div class="item" v-if="isstudent">
+              <el-tag>My Tutor</el-tag>
+              {{ stutor }}
+            </div>
+            <el-dialog title="Modify Password" :visible.sync="open1">
               <el-form>
-                <el-form-item label="输入新密码" :label-width="formLabelWidth">
+                <el-form-item
+                  label="New Password"
+                  :label-width="formLabelWidth"
+                >
                   <el-input
                     type="password"
                     v-model="password0"
                     autocomplete="off"
                   ></el-input>
                 </el-form-item>
-                <el-form-item label="确认新密码" :label-width="formLabelWidth">
+                <el-form-item label="Validation" :label-width="formLabelWidth">
                   <el-input
                     type="password"
                     v-model="password1"
@@ -56,9 +74,9 @@
                 </el-form-item>
               </el-form>
               <div slot="footer" class="dialog-footer">
-                <el-button @click="open1 = false">取 消</el-button>
+                <el-button @click="open1 = false">Cancel</el-button>
                 <el-button type="primary" @click="updatePwd">
-                  确 定
+                  Confirm
                 </el-button>
               </div>
             </el-dialog>
@@ -68,12 +86,12 @@
       <el-col :span="1"><div class="grid-content bg-purple"></div></el-col>
     </el-row>
     <el-row v-if="tutor">
-      <el-col :span="1"><div class="grid-content bg-purple"></div></el-col>
-      <el-col :span="22">
+      <el-col :span="2"><div class="grid-content bg-purple"></div></el-col>
+      <el-col :span="20">
         <div class="grid-content bg-purple-light">
           <el-card class="box-card">
             <div slot="header" class="clearfix">
-              <span>招收信息</span>
+              <span>Recruit Students</span>
               <el-button
                 @click="open22"
                 icon="el-icon-edit"
@@ -81,29 +99,43 @@
                 type="text"
                 plain
               >
-                编辑信息
+                Modify Imformation
               </el-button>
             </div>
 
-            <div class="item">目前学生数: {{ tutor.nowStuNum }}</div>
-            <div class="item">最大学生数：{{ tutor.maxStuNum }}</div>
             <div class="item">
-              招收学生范围：成绩排名在1-{{ tutor.scopeStuNum }}之间
+              Seleted Number
+              <el-tag>{{ tutor.nowStuNum }}</el-tag>
+            </div>
+            <div class="item">
+              Limited Number
+              <el-tag>{{ tutor.maxStuNum }}</el-tag>
+            </div>
+            <!-- <el-progress
+              :percentage="tutor.nowStuNum"
+              :format="format"
+            ></el-progress> -->
+            <div class="item">
+              <!-- 招收学生范围：成绩排名在1-{{ tutor.scopeStuNum }}之间 -->
+              Recruit students with grades between
+              <el-tag>1</el-tag>
+              -
+              <el-tag>{{ tutor.scopeStuNum }}</el-tag>
             </div>
           </el-card>
         </div>
       </el-col>
       <el-col :span="1"><div class="grid-content bg-purple"></div></el-col>
-      <el-dialog title="编辑招收学生信息" :visible.sync="open2">
+      <el-dialog title="Conditions of Admission" :visible.sync="open2">
         <el-form>
-          <el-form-item label="最大学生数" :label-width="formLabelWidth">
+          <el-form-item label="LimitedNumber" :label-width="formLabelWidth">
             <el-input
               type="text"
               v-model="maxStuNum"
               autocomplete="off"
             ></el-input>
           </el-form-item>
-          <el-form-item label="学生最末排名" :label-width="formLabelWidth">
+          <el-form-item label="Lowest rank" :label-width="formLabelWidth">
             <el-input
               type="text"
               v-model="scopeStuNum"
@@ -112,9 +144,9 @@
           </el-form-item>
         </el-form>
         <div slot="footer" class="dialog-footer">
-          <el-button @click="open2 = false">取 消</el-button>
+          <el-button @click="open2 = false">Cancel</el-button>
           <el-button type="primary" @click="updateNote">
-            确 定
+            Confirm
           </el-button>
         </div>
       </el-dialog>
@@ -169,6 +201,11 @@ export default {
     // }
   },
   methods: {
+    format(percentage) {
+      return percentage === this.maxStuNum
+        ? "满"
+        : `${percentage}` / this.maxStuNum;
+    },
     open22() {
       (this.maxStuNum = this.tutor.maxStuNum),
         (this.scopeStuNum = this.tutor.scopeStuNum),
@@ -176,7 +213,7 @@ export default {
     },
     success() {
       this.$message({
-        message: "修改成功",
+        message: "Modified",
         type: "success"
       });
     },
@@ -192,7 +229,7 @@ export default {
           });
       } else {
         this.$message.error();
-        ("两次密码不一致");
+        ("Two inputs do not agree");
       }
     },
     updateNote() {

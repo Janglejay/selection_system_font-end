@@ -6,7 +6,7 @@
         <div class="grid-content bg-purple-light">
           <el-card class="box-card">
             <div slot="header" class="clearfix">
-              <span>研究方向</span>
+              <span>Directions</span>
               <!-- <el-button style="float: right; padding: 3px 0" type="text">
                 编辑信息
               </el-button> -->
@@ -15,13 +15,12 @@
               <el-form ref="form" label-width="100px" class="demo-dynamic">
                 <el-form-item
                   v-for="(direction, index) in directions"
-                  :label="'研究方向' + (index + 1)"
                   :key="index"
                   :prop="'directions.' + index + '.name'"
                 >
+                  <el-tag>Direction</el-tag>
                   <el-input v-model="direction.name"></el-input>
                   <el-button
-                    type="danger"
                     size="mini"
                     circle
                     icon="el-icon-delete"
@@ -36,13 +35,15 @@
                   <el-button
                     type="primary"
                     @click="submitForm"
-                    style="background-color: #ccccff; border-color: #ccccff;width:90px"
+                    style="background-color: #1a237e; border-color: #1a237e;width:90px"
                   >
-                    提交
+                    Confirm
                   </el-button>
-                  <el-button @click="addDirection">
-                    新增方向
-                  </el-button>
+                  <el-button
+                    @click="addDirection"
+                    icon="el-icon-circle-plus-outline"
+                    round
+                  ></el-button>
                 </el-form-item>
               </el-form>
             </div>
@@ -72,7 +73,7 @@ export default {
       this.$store.dispatch(UPDATE_DIRECTIONS, this.directions).then(() => {
         if (this.isUpdateDirections == true) {
           this.$message({
-            message: "修改成功！",
+            message: "Modify success",
             type: "success"
           });
         }
@@ -118,7 +119,8 @@ export default {
 
 /* 选课列表 */
 .el-input {
-  width: 80%;
+  margin-left: 20px;
+  width: 50%;
 }
 
 /* 布局css */

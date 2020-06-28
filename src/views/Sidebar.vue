@@ -5,36 +5,36 @@
       class="el-menu-vertical-demo"
       @open="handleOpen"
       @close="handleClose"
-      background-color="#ccccff"
+      background-color="#1A237E"
       text-color="#339999"
       active-text-color="#6666cc"
       router
     >
-      <h2>导航栏</h2>
+      <h2>Selection System</h2>
       <!-- default-active 当前激活菜单的 index -->
       <el-menu-item index="1" route="/homepage">
-        <i class="el-icon-s-home"></i>
-        <span slot="title">我的信息</span>
+        <i class="el-icon-info"></i>
+        <span slot="title">My Imformations</span>
       </el-menu-item>
       <el-menu-item index="2" route="/students" v-if="tutor">
-        <i class="el-icon-user-solid"></i>
-        <span slot="title">学生管理</span>
+        <i class="el-icon-user"></i>
+        <span slot="title">Students</span>
       </el-menu-item>
       <el-menu-item index="3" route="/courses" v-if="tutor">
-        <i class="el-icon-s-claim"></i>
-        <span slot="title">课程管理</span>
+        <i class="el-icon-s-order"></i>
+        <span slot="title">Courses</span>
       </el-menu-item>
       <el-menu-item index="4" route="/directions" v-if="tutor">
-        <i class="el-icon-s-flag"></i>
-        <span slot="title">方向管理</span>
+        <i class="el-icon-s-promotion"></i>
+        <span slot="title">Directions</span>
       </el-menu-item>
       <el-menu-item index="5" route="/choice" v-if="student">
-        <i class="el-icon-menu"></i>
-        <span slot="title">选择导师</span>
+        <i class="el-icon-s-custom"></i>
+        <span slot="title">Choose Tutor</span>
       </el-menu-item>
     </el-menu>
     <!-- </el-col>
-    </el-row> -->
+    </el-row>-->
   </div>
 </template>
 
@@ -44,12 +44,12 @@
   height: 1000px;
 }
 h2 {
-  color: #339999;
-  background-color: "#ccccff";
+  color: #f5f5f5;
+  background-color: #1a237e;
   padding: 25px;
 }
 .el-menu {
-  height: 400px;
+  height: 700px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
 }
