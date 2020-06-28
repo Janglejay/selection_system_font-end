@@ -1,12 +1,5 @@
 <template>
   <div style="width:100%" class="container">
-    <!-- <ul>
-      <li><router-link to="/homepage">首页</router-link></li>
-    </ul> -->
-
-    <!-- <el-row class="tac">
-      <el-col :span="24"> -->
-
     <el-menu
       default-active="1"
       class="el-menu-vertical-demo"

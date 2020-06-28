@@ -44,8 +44,10 @@ let adminRoutes = [
 ];
 // 必须与后端提前约定。按角色，动态加载路由信息
 // 使其他角色即使知道路由路径，也无法加载对应的组件
-const tutorRole = "6983f953b49c88210cb9";
-const studentRole = "bb63e5f7e0f2ffae845c";
+// my.tutor=poAo81Rz2Ng5zoeAk9Tl
+// my.student=BoFWhMpV90bLsIDlPhpi
+const tutorRole = "poAo81Rz2Ng5zoeAk9Tl";
+const studentRole = "BoFWhMpV90bLsIDlPhpi";
 
 // 暴露该方法。登录后，有vuex调用，通知更新路由信息
 export function updateRoutes() {

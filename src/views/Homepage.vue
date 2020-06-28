@@ -128,13 +128,15 @@ import { UPDATE_PWD } from "@/store/types.js";
 import { UPDATE_NOTE } from "@/store/types.js";
 export default {
   created() {
-    if (sessionStorage.getItem("role") == "6983f953b49c88210cb9") {
+    //     my.tutor=poAo81Rz2Ng5zoeAk9Tl
+    // my.student=BoFWhMpV90bLsIDlPhpi
+    if (sessionStorage.getItem("role") == "poAo81Rz2Ng5zoeAk9Tl") {
       this.$store.dispatch("backendindex"),
         this.$store.dispatch("mystudentsindex").then(() => {
           this.istutor = true;
         });
     }
-    if (sessionStorage.getItem("role") == "bb63e5f7e0f2ffae845c") {
+    if (sessionStorage.getItem("role") == "BoFWhMpV90bLsIDlPhpi") {
       this.$store.dispatch("studentindex").then(() => {
         this.isstudent = true;
       });

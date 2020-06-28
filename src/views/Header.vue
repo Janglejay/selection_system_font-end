@@ -19,11 +19,13 @@
 import { mapState } from "vuex";
 export default {
   created() {
-    if (sessionStorage.getItem("role") == "6983f953b49c88210cb9") {
+    //     my.tutor=poAo81Rz2Ng5zoeAk9Tl
+    // my.student=BoFWhMpV90bLsIDlPhpi
+    if (sessionStorage.getItem("role") == "poAo81Rz2Ng5zoeAk9Tl") {
       // console.log(sessionStorage.getItem("role"));
       this.$store.dispatch("backendindex");
     }
-    if (sessionStorage.getItem("role") == "bb63e5f7e0f2ffae845c") {
+    if (sessionStorage.getItem("role") == "BoFWhMpV90bLsIDlPhpi") {
       console.log(sessionStorage.getItem("role"));
       this.$store.dispatch("studentindex");
     }
